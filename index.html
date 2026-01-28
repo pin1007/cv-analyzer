@@ -1,350 +1,202 @@
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學術 CV 合規檢查表 | Academic Standards Review</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        /* --- 徹底修正：莫蘭迪霧霾藍與板岩灰系 --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* --- 淺灰學術風格（Light Gray Academic）--- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
-            line-height: 1.8; 
-            max-width: 900px; 
-            margin: 60px auto; 
-            padding: 20px; 
-            /* 背景：霧霾藍 (Dusty Blue) */
-            background-color: #b9c5d1; 
-            background-image: none !important; /* 強制移除任何可能的漸層圖層 */
-            color: #4a5568; 
-        }
+body { 
+    font-family: 'Inter', -apple-system, sans-serif; 
+    line-height: 1.8; 
+    max-width: 900px; 
+    margin: 60px auto; 
+    padding: 20px; 
+    background-color: #f2f2f2;
+    color: #333333; 
+}
 
-        .header {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
-            margin-bottom: 40px;
-            text-align: center;
-            border: 1px solid #a3b0be;
-        }
+.header {
+    background: #ffffff;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-bottom: 40px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
 
-        h1 { 
-            font-family: 'Playfair Display', serif;
-            color: #2d3748; /* 板岩灰 (Slate Gray) */
-            font-size: 2.4rem;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
+h1 { 
+    font-family: 'Playfair Display', serif;
+    color: #333333;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
 
-        .subtitle {
-            color: #718096; 
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+.subtitle {
+    color: #666666; 
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
 
-        .qr-section {
-            background: #f7f9fb; 
-            padding: 25px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-            border: 1px solid #d1d9e0;
-        }
+.qr-section {
+    background: #fafafa; 
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    border: 1px solid #e0e0e0;
+}
 
-        #qrcode {
-            background: white;
-            padding: 8px;
-            border-radius: 4px;
-            display: inline-block;
-        }
+.qr-text h3 {
+    color: #333333;
+    margin-bottom: 5px;
+}
 
-        .qr-text h3 {
-            color: #2d3748;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-            font-family: 'Playfair Display', serif;
-        }
+.qr-text p {
+    color: #666666;
+    font-size: 0.85rem;
+}
 
-        .qr-text p { color: #718096; font-size: 0.85rem; }
+.qr-link {
+    color: #555555;
+    font-weight: 600;
+    text-decoration: underline;
+}
 
-        .qr-link {
-            color: #4a5568;
-            font-weight: 600;
-            text-decoration: underline;
-            font-size: 0.9rem;
-        }
+.progress-bar {
+    background: #e0e0e0;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 30px 0;
+}
 
-        .progress-bar {
-            background: #d1d9e0;
-            height: 6px;
-            border-radius: 3px;
-            overflow: hidden;
-            margin: 30px 0;
-        }
+.progress-fill {
+    background: #9e9e9e;
+    height: 100%;
+    width: 0%;
+    transition: width 1s ease;
+}
 
-        .progress-fill {
-            background: #718096; /* 板岩灰進度條 */
-            height: 100%;
-            width: 0%;
-            transition: width 1s ease;
-        }
+.section { 
+    background: #ffffff; 
+    padding: 40px; 
+    border-radius: 16px; 
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+}
 
-        .section { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 16px; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.02); 
-            margin-bottom: 30px;
-            border: 1px solid #e2e8f0;
-        }
+h2 { 
+    font-family: 'Playfair Display', serif;
+    color: #444444; 
+    font-size: 1.25rem; 
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eeeeee;
+}
 
-        h2 { 
-            font-family: 'Playfair Display', serif;
-            color: #4a5568; 
-            font-size: 1.25rem; 
-            margin-bottom: 25px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #edf2f7;
-        }
+label { 
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0; 
+    cursor: pointer; 
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: #fafafa;
+    transition: all 0.2s ease;
+}
 
-        label { 
-            display: flex;
-            align-items: flex-start;
-            margin: 10px 0; 
-            cursor: pointer; 
-            padding: 15px 20px;
-            border-radius: 10px;
-            background: #fcfdfe;
-            transition: all 0.2s ease;
-        }
+label:hover { 
+    background: #f0f0f0;
+}
 
-        label:hover { 
-            background: #f1f5f9;
-            transform: translateX(3px);
-        }
+label.checked {
+    background: #eeeeee;
+    border: 1px solid #d6d6d6;
+}
 
-        label.checked {
-            background: #f0f4f8;
-            border: 1px solid #cbd5e0;
-        }
+input[type="checkbox"] { 
+    accent-color: #9e9e9e;
+    margin-right: 15px; 
+    width: 16px;
+    height: 16px;
+    margin-top: 6px;
+}
 
-        input[type="checkbox"] { 
-            accent-color: #718096;
-            margin-right: 15px; 
-            width: 16px;
-            height: 16px;
-            margin-top: 6px;
-        }
+.label-text { 
+    flex: 1; 
+    font-size: 0.95rem; 
+    color: #333333; 
+}
 
-        .label-text { flex: 1; font-size: 0.95rem; color: #4a5568; }
+.severity-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
 
-        .severity-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-left: 10px;
-        }
+.severity-error { 
+    background: #eeeeee; 
+    color: #333333; 
+    border: 1px solid #d6d6d6; 
+}
 
-        .severity-error { background: #d1d9e0; color: #2d3748; border: 1px solid #cbd5e0; }
-        .severity-warning { background: #f7fafc; color: #718096; border: 1px solid #edf2f7; }
+button { 
+    display: block; 
+    width: 100%; 
+    padding: 18px; 
+    background: #9e9e9e;
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    font-size: 0.95rem; 
+    font-weight: 600; 
+    cursor: pointer; 
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
 
-        button { 
-            display: block; 
-            width: 100%; 
-            padding: 18px; 
-            background: #718096; /* 板岩灰按鈕 */
-            color: white; 
-            border: none; 
-            border-radius: 10px; 
-            font-size: 0.95rem; 
-            font-weight: 600; 
-            cursor: pointer; 
-            transition: background 0.3s ease;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+button:hover { 
+    background: #757575; 
+}
 
-        button:hover { background: #4a5568; }
+.reset-button {
+    background: transparent;
+    color: #666666;
+    border: 1px solid #cccccc;
+}
 
-        .reset-button {
-            background: transparent;
-            color: #a0aec0;
-            border: 1px solid #cbd5e0;
-            text-transform: none;
-            letter-spacing: 1px;
-        }
+.reset-button:hover { 
+    background: #f5f5f5; 
+}
 
-        .reset-button:hover { background: #f7fafc; color: #4a5568; }
+#results { 
+    margin-top: 30px; 
+    padding: 30px; 
+    background: #ffffff;
+    border-radius: 16px;
+    border-left: 4px solid #9e9e9e;
+    display: none;
+}
 
-        #results { 
-            margin-top: 30px; 
-            padding: 30px; 
-            background: white;
-            border-radius: 16px;
-            border-left: 4px solid #718096;
-            display: none;
-        }
+footer {
+    text-align: center;
+    color: #666666;
+    margin-top: 60px;
+    padding: 30px;
+    font-size: 0.8rem;
+    border-top: 1px solid #e0e0e0;
+}
 
-        footer {
-            text-align: center;
-            color: #718096;
-            margin-top: 60px;
-            padding: 30px;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255,255,255,0.3);
-        }
-
-        footer a { color: #4a5568; text-decoration: none; }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <h1>Academic CV Compliance</h1>
-        <p class="subtitle">Based on "The Professor Is In" by Dr. Karen Kelsky</p>
-        
-        <div class="progress-bar">
-            <div class="progress-fill" id="progress"></div>
-        </div>
-
-        <div class="qr-section">
-            <div class="qr-container">
-                <div id="qrcode"></div>
-            </div>
-            <div class="qr-text">
-                <h3>CV Analyzer</h3>
-                <p>Scan to access the online manual review tool</p>
-                <a href="https://pin1007.github.io/cv-analyzer/" target="_blank" class="qr-link">
-                    pin1007.github.io/cv-analyzer
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>I. Formatting Rules</h2>
-        <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Ensure all margins are exactly 1 inch.">
-            <span class="label-text">One-inch margins on all sides <span class="severity-badge severity-error">Critical</span></span>
-        </label>
-        <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Body text must be 12-point font.">
-            <span class="label-text">12-point type throughout <span class="severity-badge severity-error">Critical</span></span>
-        </label>
-        <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="CV entries do not use bullet points.">
-            <span class="label-text">NO bullet points used <span class="severity-badge severity-error">Critical</span></span>
-        </label>
-        <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Years must be listed on the left for scannability.">
-            <span class="label-text">Year-to-the-left alignment <span class="severity-badge severity-error">Critical</span></span>
-        </label>
-    </div>
-
-    <div class="section">
-        <h2>II. Content Structure</h2>
-        <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Education is the primary section.">
-            <span class="label-text">Education listed as the first section <span class="severity-badge severity-error">Critical</span></span>
-        </label>
-        <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Research and publications precede teaching experience.">
-            <span class="label-text">Proper section hierarchy <span class="severity-badge severity-error">Critical</span></span>
-        </label>
-    </div>
-
-    <button onclick="generateAdvice()">Generate Revision Guide</button>
-    <button class="reset-button" onclick="resetChecklist()">Reset Progress</button>
-
-    <div id="results">
-        <h2 style="border: none; padding: 0;">Required Modifications</h2>
-        <div id="tipList"></div>
-    </div>
-
-    <footer>
-        <p>Derived from <a href="https://theprofessorisin.com/" target="_blank">"The Professor Is In"</a></p>
-        <p style="margin-top: 8px;">Academic Standards Manual Review • 2026</p>
-    </footer>
-
-    <script>
-        new QRCode(document.getElementById("qrcode"), {
-            text: "https://pin1007.github.io/cv-analyzer/",
-            width: 100,
-            height: 100,
-            colorDark: "#2d3748",
-            colorLight: "#f7f9fb",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-
-        function updateProgress() {
-            const checkboxes = document.querySelectorAll('.checklist-item');
-            const checked = document.querySelectorAll('.checklist-item:checked').length;
-            const percentage = Math.round((checked / checkboxes.length) * 100);
-            const progressBar = document.getElementById('progress');
-            progressBar.style.width = percentage + '%';
-        }
-
-        document.querySelectorAll('.checklist-item').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                this.closest('label').classList.toggle('checked', this.checked);
-                updateProgress();
-            });
-        });
-
-        function generateAdvice() {
-            const checkboxes = document.querySelectorAll('.checklist-item');
-            const tipList = document.getElementById('tipList');
-            const resultsDiv = document.getElementById('results');
-            tipList.innerHTML = '';
-            let uncompleted = 0;
-
-            checkboxes.forEach(cb => {
-                if (!cb.checked) {
-                    uncompleted++;
-                    const tip = cb.getAttribute('data-tip');
-                    const label = cb.nextElementSibling.textContent.split('Critical')[0].trim();
-                    tipList.innerHTML += `
-                        <div style="margin-bottom:15px; padding:18px; background:#f8fafc; border-radius:10px; border:1px solid #e2e8f0;">
-                            <div style="font-weight:600; color:#2d3748; margin-bottom:4px; font-size:0.95rem;">${label}</div>
-                            <div style="font-size:0.85rem; color:#718096;">${tip}</div>
-                        </div>`;
-                }
-            });
-
-            if (uncompleted > 0) {
-                resultsDiv.style.display = 'block';
-                resultsDiv.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                alert('Review complete: All items meet the standards.');
-            }
-        }
-
-        function resetChecklist() {
-            if (confirm('Clear all progress?')) {
-                document.querySelectorAll('.checklist-item').forEach(cb => {
-                    cb.checked = false;
-                    cb.closest('label').classList.remove('checked');
-                });
-                updateProgress();
-                document.getElementById('results').style.display = 'none';
-            }
-        }
-    </script>
-</body>
-</html>
+footer a { 
+    color: #444444; 
+    text-decoration: none; 
+}
