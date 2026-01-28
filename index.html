@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學術 CV 合規檢查表 | The Professor Is In</title>
+    <title>學術 CV 合規檢查表 | Academic Standards</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* --- 莫蘭迪優雅風格 CSS --- */
+        /* --- 莫蘭迪風格鎖定 --- */
         * {
             margin: 0;
             padding: 0;
@@ -20,30 +20,30 @@
             max-width: 900px; 
             margin: 60px auto; 
             padding: 20px; 
-            background-color: #f4f1ee; 
-            color: #5a5a5a; 
+            background-color: #f2f0ed; /* 莫蘭迪米灰，取代紫色 */
+            color: #555555; 
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 50px 40px;
-            border-radius: 24px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+            background: #ffffff;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
             margin-bottom: 40px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.5);
+            border: 1px solid #e5e0d8;
         }
 
         h1 { 
             font-family: 'Playfair Display', serif;
-            color: #4a5d66; 
-            font-size: 2.6rem;
-            margin-bottom: 12px;
-            font-weight: 700;
+            color: #4a5459; /* 深石墨灰 */
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
         }
 
         .subtitle {
-            color: #8e9794; 
+            color: #9e9e9e; 
             font-size: 0.9rem;
             margin-bottom: 30px;
             letter-spacing: 2px;
@@ -51,81 +51,71 @@
         }
 
         .qr-section {
-            background: #fdfaf5; 
+            background: #faf8f5; 
             padding: 25px;
-            border-radius: 16px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 25px;
-            margin-top: 20px;
-            border: 1px solid #e0d7cd;
+            border: 1px solid #e8e2d9;
         }
 
         #qrcode {
             background: white;
-            padding: 10px;
-            border-radius: 8px;
+            padding: 8px;
+            border-radius: 4px;
             display: inline-block;
         }
 
         .qr-text h3 {
-            color: #4a5d66;
-            margin-bottom: 8px;
+            color: #4a5459;
+            margin-bottom: 5px;
             font-size: 1.1rem;
             font-family: 'Playfair Display', serif;
         }
 
-        .qr-text p {
-            color: #999;
+        .qr-text p { color: #999; font-size: 0.85rem; }
+
+        .qr-link {
+            color: #8da399; /* 莫蘭迪綠 */
+            font-weight: 600;
+            text-decoration: none;
             font-size: 0.9rem;
         }
 
-        .qr-link {
-            color: #84a59d;
-            font-weight: 600;
-            text-decoration: none;
-            display: block;
-            margin-top: 5px;
-        }
-
         .progress-bar {
-            background: #d1d9d9;
-            height: 8px;
-            border-radius: 4px;
+            background: #e0ddd7;
+            height: 6px;
+            border-radius: 3px;
             overflow: hidden;
             margin: 30px 0;
         }
 
         .progress-fill {
-            background: #a3b18a; 
+            background: #8da399; /* 鼠尾草綠 */
             height: 100%;
             width: 0%;
             transition: width 1s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.7rem;
         }
 
         .section { 
             background: white; 
             padding: 40px; 
-            border-radius: 20px; 
-            box-shadow: 0 4px 20px rgba(0,0,0,0.02); 
+            border-radius: 16px; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02); 
             margin-bottom: 30px;
-            border: 1px solid #f0f0f0;
+            border: 1px solid #eceae6;
         }
 
         h2 { 
             font-family: 'Playfair Display', serif;
-            color: #92817a; 
-            font-size: 1.3rem; 
+            color: #8c7e73; /* 莫蘭迪暖棕 */
+            font-size: 1.25rem; 
             margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
-            letter-spacing: 1px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f2f0ed;
+            letter-spacing: 0.5px;
         }
 
         label { 
@@ -133,85 +123,94 @@
             align-items: flex-start;
             margin: 10px 0; 
             cursor: pointer; 
-            transition: 0.2s;
-            padding: 14px 20px;
-            border-radius: 12px;
-            background: #fcfcfc;
+            padding: 15px 20px;
+            border-radius: 10px;
+            background: #fdfdfc;
+            transition: all 0.2s ease;
         }
 
         label:hover { 
-            background: #fff;
-            transform: translateX(4px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            background: #f9f8f6;
+            transform: translateX(3px);
         }
 
         label.checked {
-            background: #f4f5f0;
-            border-color: #a3b18a;
+            background: #f4f6f5;
+            border: 1px solid #e0e8e5;
         }
 
         input[type="checkbox"] { 
-            accent-color: #a3b18a;
+            accent-color: #8da399;
             margin-right: 15px; 
-            width: 17px;
-            height: 17px;
-            margin-top: 5px;
+            width: 16px;
+            height: 16px;
+            margin-top: 6px;
         }
 
-        .label-text { flex: 1; font-size: 0.95rem; }
+        .label-text { flex: 1; font-size: 0.95rem; color: #666; }
 
         .severity-badge {
             display: inline-block;
             padding: 2px 8px;
             border-radius: 4px;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 600;
             text-transform: uppercase;
             margin-left: 10px;
+            letter-spacing: 0.5px;
         }
 
-        .severity-error { background: #e2b4bd; color: #7d4f50; }
-        .severity-warning { background: #e9edc9; color: #606c38; }
+        .severity-error { background: #e8d3d5; color: #8c6a6d; } /* 莫蘭迪乾枯玫瑰色 */
+        .severity-warning { background: #e8e9d8; color: #7a7d62; }
 
         button { 
             display: block; 
             width: 100%; 
-            padding: 20px; 
-            background: #84a59d; 
+            padding: 18px; 
+            background: #8da399; 
             color: white; 
             border: none; 
-            border-radius: 12px; 
-            font-size: 1rem; 
+            border-radius: 10px; 
+            font-size: 0.95rem; 
             font-weight: 600; 
             cursor: pointer; 
-            transition: 0.3s;
+            transition: background 0.3s ease;
             letter-spacing: 2px;
             margin-bottom: 15px;
             text-transform: uppercase;
         }
 
-        button:hover { 
-            background: #6b8f87;
-            box-shadow: 0 8px 25px rgba(132, 165, 157, 0.2);
-        }
+        button:hover { background: #7a8f85; }
 
         .reset-button {
             background: transparent;
-            color: #b0b0b0;
-            border: 1px solid #ddd;
-            font-size: 0.85rem;
+            color: #b0aca2;
+            border: 1px solid #dcd8d0;
+            text-transform: none;
+            letter-spacing: 1px;
+        }
+
+        .reset-button:hover { background: #fdfdfc; color: #8c7e73; }
+
+        #results { 
+            margin-top: 30px; 
+            padding: 30px; 
+            background: white;
+            border-radius: 16px;
+            border-left: 4px solid #e8d3d5;
+            display: none;
         }
 
         footer {
             text-align: center;
-            color: #adb5bd;
+            color: #b5b0aa;
             margin-top: 60px;
             padding: 30px;
-            font-size: 0.85rem;
-            border-top: 1px solid #e0e0e0;
+            font-size: 0.8rem;
+            border-top: 1px solid #e5e2dd;
         }
 
-        footer a { color: #84a59d; text-decoration: none; }
+        footer a { color: #8da399; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -221,7 +220,7 @@
         <p class="subtitle">Based on "The Professor Is In" by Dr. Karen Kelsky</p>
         
         <div class="progress-bar">
-            <div class="progress-fill" id="progress">0%</div>
+            <div class="progress-fill" id="progress"></div>
         </div>
 
         <div class="qr-section">
@@ -230,7 +229,7 @@
             </div>
             <div class="qr-text">
                 <h3>CV Analyzer</h3>
-                <p>Scan to access the online analysis tool</p>
+                <p>Scan to access the online manual review tool</p>
                 <a href="https://pin1007.github.io/cv-analyzer/" target="_blank" class="qr-link">
                     pin1007.github.io/cv-analyzer
                 </a>
@@ -240,38 +239,57 @@
 
     <div class="section">
         <h2>I. Formatting Rules</h2>
-        <label><input type="checkbox" class="checklist-item" data-severity="error" data-tip="Set all margins to 1 inch."><span class="label-text">One-inch margins on all sides <span class="severity-badge severity-error">Critical</span></span></label>
-        <label><input type="checkbox" class="checklist-item" data-severity="error" data-tip="12pt type throughout."><span class="label-text">12-point type throughout <span class="severity-badge severity-error">Critical</span></span></label>
-        <label><input type="checkbox" class="checklist-item" data-severity="error" data-tip="Remove bullets."><span class="label-text">NO bullet points anywhere <span class="severity-badge severity-error">Critical</span></span></label>
-        <label><input type="checkbox" class="checklist-item" data-severity="error" data-tip="Year on the left."><span class="label-text">Year-to-the-left rule <span class="severity-badge severity-error">Critical</span></span></label>
+        <label>
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Ensure all margins are exactly 1 inch.">
+            <span class="label-text">One-inch margins on all sides <span class="severity-badge severity-error">Critical</span></span>
+        </label>
+        <label>
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Body text must be 12-point font.">
+            <span class="label-text">12-point type throughout <span class="severity-badge severity-error">Critical</span></span>
+        </label>
+        <label>
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="This is a CV, not a resume. Bullet points are not used.">
+            <span class="label-text">NO bullet points used <span class="severity-badge severity-error">Critical</span></span>
+        </label>
+        <label>
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Years must be clearly listed on the left for scannability.">
+            <span class="label-text">Year-to-the-left alignment <span class="severity-badge severity-error">Critical</span></span>
+        </label>
     </div>
 
     <div class="section">
         <h2>II. Content Structure</h2>
-        <label><input type="checkbox" class="checklist-item" data-severity="error" data-tip="Education first."><span class="label-text">Education section is first <span class="severity-badge severity-error">Critical</span></span></label>
-        <label><input type="checkbox" class="checklist-item" data-severity="error" data-tip="Publications before teaching."><span class="label-text">Proper section order <span class="severity-badge severity-error">Critical</span></span></label>
+        <label>
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Education must be the primary section.">
+            <span class="label-text">Education listed as the first section <span class="severity-badge severity-error">Critical</span></span>
+        </label>
+        <label>
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Research and publications must precede teaching experience.">
+            <span class="label-text">Proper section hierarchy <span class="severity-badge severity-error">Critical</span></span>
+        </label>
     </div>
 
     <button onclick="generateAdvice()">Generate Revision Guide</button>
-    <button class="reset-button" onclick="resetChecklist()">Reset Checklist</button>
+    <button class="reset-button" onclick="resetChecklist()">Reset Progress</button>
 
-    <div id="results" style="display:none; margin-top:30px; padding:35px; background:white; border-radius:16px; border-left: 6px solid #e2b4bd;">
-        <h2 style="color: #7d4f50; border: none;">Required Modifications</h2>
+    <div id="results">
+        <h2 style="color: #8c6a6d; border: none; padding: 0;">Required Modifications</h2>
         <div id="tipList"></div>
     </div>
 
     <footer>
         <p>Derived from <a href="https://theprofessorisin.com/" target="_blank">"The Professor Is In"</a></p>
-        <p style="margin-top: 8px; opacity: 0.7;">Academic Standards Checklist • 2026</p>
+        <p style="margin-top: 8px;">Academic Standards Manual Review • 2026</p>
     </footer>
 
     <script>
+        // 初始化 QR Code - 使用深灰色以符合莫蘭迪調性
         new QRCode(document.getElementById("qrcode"), {
             text: "https://pin1007.github.io/cv-analyzer/",
-            width: 110,
-            height: 110,
-            colorDark: "#4a5d66",
-            colorLight: "#fdfaf5",
+            width: 100,
+            height: 100,
+            colorDark: "#4a5459",
+            colorLight: "#faf8f5",
             correctLevel: QRCode.CorrectLevel.H
         });
 
@@ -281,7 +299,6 @@
             const percentage = Math.round((checked / checkboxes.length) * 100);
             const progressBar = document.getElementById('progress');
             progressBar.style.width = percentage + '%';
-            progressBar.textContent = percentage + '%';
         }
 
         document.querySelectorAll('.checklist-item').forEach(checkbox => {
@@ -303,23 +320,30 @@
                     uncompleted++;
                     const tip = cb.getAttribute('data-tip');
                     const label = cb.nextElementSibling.textContent.split('Critical')[0].trim();
-                    tipList.innerHTML += `<div style="margin-bottom:15px; padding:15px; background:#fffafa; border-radius:10px; border:1px solid #f0e4e4;"><div style="font-weight:600; color:#7d4f50; margin-bottom:4px;">${label}</div><div style="font-size:0.9rem; color:#666;">${tip}</div></div>`;
+                    tipList.innerHTML += `
+                        <div style="margin-bottom:15px; padding:18px; background:#fcfafb; border-radius:10px; border:1px solid #f2ecee;">
+                            <div style="font-weight:600; color:#8c6a6d; margin-bottom:4px; font-size:0.95rem;">${label}</div>
+                            <div style="font-size:0.85rem; color:#777;">${tip}</div>
+                        </div>`;
                 }
             });
 
             if (uncompleted > 0) {
                 resultsDiv.style.display = 'block';
                 resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                alert('All items have been verified.');
             }
         }
 
         function resetChecklist() {
-            if (confirm('Reset all progress?')) {
+            if (confirm('Clear all selections?')) {
                 document.querySelectorAll('.checklist-item').forEach(cb => {
                     cb.checked = false;
                     cb.closest('label').classList.remove('checked');
                 });
                 updateProgress();
+                document.getElementById('results').style.display = 'none';
             }
         }
     </script>
