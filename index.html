@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學術 CV 合規檢查表 | Academic Standards</title>
+    <title>學術 CV 合規檢查表 | Academic Standards Review</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* --- 莫蘭迪風格鎖定 --- */
+        /* --- 徹底修正：莫蘭迪霧霾藍與板岩灰系 --- */
         * {
             margin: 0;
             padding: 0;
@@ -20,30 +20,32 @@
             max-width: 900px; 
             margin: 60px auto; 
             padding: 20px; 
-            background-color: #f2f0ed; /* 莫蘭迪米灰，取代紫色 */
-            color: #555555; 
+            /* 背景：霧霾藍 (Dusty Blue) */
+            background-color: #b9c5d1; 
+            background-image: none !important; /* 強制移除任何可能的漸層圖層 */
+            color: #4a5568; 
         }
 
         .header {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
             padding: 60px 40px;
             border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
             margin-bottom: 40px;
             text-align: center;
-            border: 1px solid #e5e0d8;
+            border: 1px solid #a3b0be;
         }
 
         h1 { 
             font-family: 'Playfair Display', serif;
-            color: #4a5459; /* 深石墨灰 */
+            color: #2d3748; /* 板岩灰 (Slate Gray) */
             font-size: 2.4rem;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
         }
 
         .subtitle {
-            color: #9e9e9e; 
+            color: #718096; 
             font-size: 0.9rem;
             margin-bottom: 30px;
             letter-spacing: 2px;
@@ -51,14 +53,14 @@
         }
 
         .qr-section {
-            background: #faf8f5; 
+            background: #f7f9fb; 
             padding: 25px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 25px;
-            border: 1px solid #e8e2d9;
+            border: 1px solid #d1d9e0;
         }
 
         #qrcode {
@@ -69,23 +71,23 @@
         }
 
         .qr-text h3 {
-            color: #4a5459;
+            color: #2d3748;
             margin-bottom: 5px;
             font-size: 1.1rem;
             font-family: 'Playfair Display', serif;
         }
 
-        .qr-text p { color: #999; font-size: 0.85rem; }
+        .qr-text p { color: #718096; font-size: 0.85rem; }
 
         .qr-link {
-            color: #8da399; /* 莫蘭迪綠 */
+            color: #4a5568;
             font-weight: 600;
-            text-decoration: none;
+            text-decoration: underline;
             font-size: 0.9rem;
         }
 
         .progress-bar {
-            background: #e0ddd7;
+            background: #d1d9e0;
             height: 6px;
             border-radius: 3px;
             overflow: hidden;
@@ -93,7 +95,7 @@
         }
 
         .progress-fill {
-            background: #8da399; /* 鼠尾草綠 */
+            background: #718096; /* 板岩灰進度條 */
             height: 100%;
             width: 0%;
             transition: width 1s ease;
@@ -105,17 +107,16 @@
             border-radius: 16px; 
             box-shadow: 0 2px 15px rgba(0,0,0,0.02); 
             margin-bottom: 30px;
-            border: 1px solid #eceae6;
+            border: 1px solid #e2e8f0;
         }
 
         h2 { 
             font-family: 'Playfair Display', serif;
-            color: #8c7e73; /* 莫蘭迪暖棕 */
+            color: #4a5568; 
             font-size: 1.25rem; 
             margin-bottom: 25px;
             padding-bottom: 12px;
-            border-bottom: 1px solid #f2f0ed;
-            letter-spacing: 0.5px;
+            border-bottom: 1px solid #edf2f7;
         }
 
         label { 
@@ -125,49 +126,48 @@
             cursor: pointer; 
             padding: 15px 20px;
             border-radius: 10px;
-            background: #fdfdfc;
+            background: #fcfdfe;
             transition: all 0.2s ease;
         }
 
         label:hover { 
-            background: #f9f8f6;
+            background: #f1f5f9;
             transform: translateX(3px);
         }
 
         label.checked {
-            background: #f4f6f5;
-            border: 1px solid #e0e8e5;
+            background: #f0f4f8;
+            border: 1px solid #cbd5e0;
         }
 
         input[type="checkbox"] { 
-            accent-color: #8da399;
+            accent-color: #718096;
             margin-right: 15px; 
             width: 16px;
             height: 16px;
             margin-top: 6px;
         }
 
-        .label-text { flex: 1; font-size: 0.95rem; color: #666; }
+        .label-text { flex: 1; font-size: 0.95rem; color: #4a5568; }
 
         .severity-badge {
             display: inline-block;
             padding: 2px 8px;
             border-radius: 4px;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             margin-left: 10px;
-            letter-spacing: 0.5px;
         }
 
-        .severity-error { background: #e8d3d5; color: #8c6a6d; } /* 莫蘭迪乾枯玫瑰色 */
-        .severity-warning { background: #e8e9d8; color: #7a7d62; }
+        .severity-error { background: #d1d9e0; color: #2d3748; border: 1px solid #cbd5e0; }
+        .severity-warning { background: #f7fafc; color: #718096; border: 1px solid #edf2f7; }
 
         button { 
             display: block; 
             width: 100%; 
             padding: 18px; 
-            background: #8da399; 
+            background: #718096; /* 板岩灰按鈕 */
             color: white; 
             border: none; 
             border-radius: 10px; 
@@ -180,37 +180,37 @@
             text-transform: uppercase;
         }
 
-        button:hover { background: #7a8f85; }
+        button:hover { background: #4a5568; }
 
         .reset-button {
             background: transparent;
-            color: #b0aca2;
-            border: 1px solid #dcd8d0;
+            color: #a0aec0;
+            border: 1px solid #cbd5e0;
             text-transform: none;
             letter-spacing: 1px;
         }
 
-        .reset-button:hover { background: #fdfdfc; color: #8c7e73; }
+        .reset-button:hover { background: #f7fafc; color: #4a5568; }
 
         #results { 
             margin-top: 30px; 
             padding: 30px; 
             background: white;
             border-radius: 16px;
-            border-left: 4px solid #e8d3d5;
+            border-left: 4px solid #718096;
             display: none;
         }
 
         footer {
             text-align: center;
-            color: #b5b0aa;
+            color: #718096;
             margin-top: 60px;
             padding: 30px;
             font-size: 0.8rem;
-            border-top: 1px solid #e5e2dd;
+            border-top: 1px solid rgba(255,255,255,0.3);
         }
 
-        footer a { color: #8da399; text-decoration: none; }
+        footer a { color: #4a5568; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -248,11 +248,11 @@
             <span class="label-text">12-point type throughout <span class="severity-badge severity-error">Critical</span></span>
         </label>
         <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="This is a CV, not a resume. Bullet points are not used.">
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="CV entries do not use bullet points.">
             <span class="label-text">NO bullet points used <span class="severity-badge severity-error">Critical</span></span>
         </label>
         <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Years must be clearly listed on the left for scannability.">
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Years must be listed on the left for scannability.">
             <span class="label-text">Year-to-the-left alignment <span class="severity-badge severity-error">Critical</span></span>
         </label>
     </div>
@@ -260,11 +260,11 @@
     <div class="section">
         <h2>II. Content Structure</h2>
         <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Education must be the primary section.">
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Education is the primary section.">
             <span class="label-text">Education listed as the first section <span class="severity-badge severity-error">Critical</span></span>
         </label>
         <label>
-            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Research and publications must precede teaching experience.">
+            <input type="checkbox" class="checklist-item" data-severity="error" data-tip="Research and publications precede teaching experience.">
             <span class="label-text">Proper section hierarchy <span class="severity-badge severity-error">Critical</span></span>
         </label>
     </div>
@@ -273,7 +273,7 @@
     <button class="reset-button" onclick="resetChecklist()">Reset Progress</button>
 
     <div id="results">
-        <h2 style="color: #8c6a6d; border: none; padding: 0;">Required Modifications</h2>
+        <h2 style="border: none; padding: 0;">Required Modifications</h2>
         <div id="tipList"></div>
     </div>
 
@@ -283,13 +283,12 @@
     </footer>
 
     <script>
-        // 初始化 QR Code - 使用深灰色以符合莫蘭迪調性
         new QRCode(document.getElementById("qrcode"), {
             text: "https://pin1007.github.io/cv-analyzer/",
             width: 100,
             height: 100,
-            colorDark: "#4a5459",
-            colorLight: "#faf8f5",
+            colorDark: "#2d3748",
+            colorLight: "#f7f9fb",
             correctLevel: QRCode.CorrectLevel.H
         });
 
@@ -321,9 +320,9 @@
                     const tip = cb.getAttribute('data-tip');
                     const label = cb.nextElementSibling.textContent.split('Critical')[0].trim();
                     tipList.innerHTML += `
-                        <div style="margin-bottom:15px; padding:18px; background:#fcfafb; border-radius:10px; border:1px solid #f2ecee;">
-                            <div style="font-weight:600; color:#8c6a6d; margin-bottom:4px; font-size:0.95rem;">${label}</div>
-                            <div style="font-size:0.85rem; color:#777;">${tip}</div>
+                        <div style="margin-bottom:15px; padding:18px; background:#f8fafc; border-radius:10px; border:1px solid #e2e8f0;">
+                            <div style="font-weight:600; color:#2d3748; margin-bottom:4px; font-size:0.95rem;">${label}</div>
+                            <div style="font-size:0.85rem; color:#718096;">${tip}</div>
                         </div>`;
                 }
             });
@@ -332,12 +331,12 @@
                 resultsDiv.style.display = 'block';
                 resultsDiv.scrollIntoView({ behavior: 'smooth' });
             } else {
-                alert('All items have been verified.');
+                alert('Review complete: All items meet the standards.');
             }
         }
 
         function resetChecklist() {
-            if (confirm('Clear all selections?')) {
+            if (confirm('Clear all progress?')) {
                 document.querySelectorAll('.checklist-item').forEach(cb => {
                     cb.checked = false;
                     cb.closest('label').classList.remove('checked');
